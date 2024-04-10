@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <!-- Include the Socket.IO client library to enable WebSocket communication -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        // Once the DOM (Document Object Model) is fully loaded, initialize the WebSocket connection
+        document.addEventListener('DOMContentLoaded', () => {
+            // Connect to the WebSocket server
+            const socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+            // Variable to store the user's handle
+            let userHandle = '';
+
+            // Function to execute when the 'Send' button is clicked
+            document.querySelector('#send').onclick = () => {
+                // Get the message from the input field
+                const message = document.querySelector('#message').value;
+                // Send the message and the user's handle to the server using the 'send_message' event
+                socket.emit('send_message', {'handle': userHandle, 'message': message});
+                // Clear the input field after sending the message
+                document.querySelector('#message').value = '';
+            };
+
+            // Event listener for when the client successfully connects to the server
+            socket.on('connect', () => {
+                // Prompt the user to enter their handle
+                userHandle = prompt("Please enter your handle:");
+                // Show the message input section now that the user has a handle
+                document.querySelector('#message-input').style.display = 'block';
+            });
+
+            // Event listener for receiving messages from the server
+            socket.on('message', data => {
+                // Create a new paragraph element to display the message
+                const p = document.createElement('p');
+                p.innerHTML = data;  // Set the content of the paragraph to the received message
+                // Append the new paragraph to the 'messages' div to display it
+                document.querySelector('#messages').append(p);
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Area to display chat messages -->
+    <div id="messages"></div>
+    <!-- Input section for sending messages, initially hidden until the user enters a handle -->
+    <div id="message-input" style="display:none;">
+        <input id="message" type="text">
+        <button id="send">Send</button>
+    </div>
+</body>
+</html>
