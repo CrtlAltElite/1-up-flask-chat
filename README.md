@@ -1,3 +1,77 @@
+# Using this Repository
+
+# Running The Application
+
+This guide will help you set up and run a Flask-SocketIO chat application on your Windows or macOS system.
+
+## Prerequisites
+
+Before you start, ensure you have Python installed on your computer. If not, download and install it from [python.org](https://www.python.org/downloads/).
+
+## Setup
+
+1. **Clone the Repository**
+   - Open your terminal (Command Prompt on Windows, Terminal on macOS).
+   - Clone the project repository:
+     ```
+     git clonehttps://github.com/CrtlAltElite/1-up-flask-chat
+     cd 1-up-flask-chat
+     ```
+
+2. **Create a Virtual Environment**
+   - Run the following command to create a virtual environment named `venv`:
+     - **Windows:**
+       ```
+       python -m venv venv
+       ```
+     - **macOS:**
+       ```
+       python3 -m venv venv
+       ```
+
+3. **Activate the Virtual Environment**
+   - Activate it by running:
+     - **Windows:**
+       ```
+       .\venv\Scripts\activate
+       ```
+     - **macOS:**
+       ```
+       source venv/bin/activate
+       ```
+
+4. **Install Dependencies**
+   - Install the required Python packages using pip:
+     ```
+     pip install flask flask-socketio
+     ```
+
+## Running the Application
+
+
+**Start the Flask Application**
+   - Run the application using:
+     ```
+     flask run
+     ```
+
+   - Alternatively, you can use `socketio.run(app)` in your `app.py` if your application setup requires it, usually starting with:
+     ```
+     python app.py
+     ```
+
+## Access the Application
+
+- Open a web browser and visit `http://127.0.0.1:5000/` to access your application.
+
+## Deactivate the Virtual Environment
+
+When you're done, you can deactivate the virtual environment by running:
+- **Windows and macOS:**
+  ```
+  deactivate
+  ```
+
 # Understanding WebSockets and Socket.IO in a Real-time Chat Application
 
 ## What is a WebSocket?
@@ -55,8 +129,7 @@ WebSocket is a communication protocol that provides full-duplex communication ch
   - `(data) => {}`: The function to execute when a message is received, where `data` is the received message.
 
 ### Resources
-- [**Flask-Socketi**](https://github.com/miguelgrinberg/Flask-SocketIO?tab=readme-ov-file)
 - [**JS Socket.io CDN Links**](https://cdnjs.com/libraries/socket.io)
 - [**Js Socket.io GitHub**](https://github.com/socketio/socket.io-client)
-- [**Flask-Socketi**](https://github.com/miguelgrinberg/Flask-SocketIO?tab=readme-ov-file)
 - [**JS Socket.io Tutorial**](https://socket.io/docs/v4/tutorial/step-1)
+- [**Flask-Socketio**](https://github.com/miguelgrinberg/Flask-SocketIO?tab=readme-ov-file)
