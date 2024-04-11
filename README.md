@@ -54,3 +54,9 @@ WebSocket is a communication protocol that provides full-duplex communication ch
   - `'message'`: The event name to listen for.
   - `(data) => {}`: The function to execute when a message is received, where `data` is the received message.
 
+### Resources
+- [**Flask-Socketi**](https://github.com/miguelgrinberg/Flask-SocketIO?tab=readme-ov-file)
+- [**JS Socket.io CDN Links**](https://cdnjs.com/libraries/socket.io)
+- [**Js Socket.io GitHub**](https://github.com/socketio/socket.io-client)
+- [**Flask-Socketi**](https://github.com/miguelgrinberg/Flask-SocketIO?tab=readme-ov-file)
+- [**JS Socket.io Tutorial**](https://socket.io/docs/v4/tutorial/step-1)
